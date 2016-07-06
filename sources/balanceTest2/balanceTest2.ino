@@ -50,6 +50,8 @@ void balance() {
   } else if (xPos < downThreshold) {
       Serial.println("Move X counter clockwise");
       xClockwise = false;
+  } else {
+    needCenterX = false;
   }
 
   int yPos = analogRead(sensorY);
@@ -59,6 +61,8 @@ void balance() {
   } else if (yPos < downThreshold) {
       Serial.println("Move Y counter clockwise");
       yClockwise = false;
+  } else {
+    needCenterY = false;
   }
  
   while (needCenterX || needCenterY) {
